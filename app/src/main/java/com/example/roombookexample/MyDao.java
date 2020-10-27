@@ -13,6 +13,6 @@ public interface MyDao {
     public void addBooks(BookModel bookModel);
 
     @Query("select * from books")
-    public List<BookModel> getUsers();
+    public List<BookModel> getBooks();
 
 }
