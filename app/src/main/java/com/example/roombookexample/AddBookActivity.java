@@ -8,13 +8,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.roombookexample.repository.BookRepository;
+
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
+
 public class AddBookActivity extends AppCompatActivity {
+//    @Inject
+//    MyDatabase myDatabase;
+
+    @Inject
+    BookRepository bookRepository;
 
     private EditText bookId, bookTitle, bookAuthor;
     private Button btnSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_book);
 
@@ -24,10 +36,9 @@ public class AddBookActivity extends AppCompatActivity {
 
     }
 
-    public void onClickSave(View view)
-    {
+    public void onClickSave(View view) {
         int id = Integer.parseInt(bookId.getText().toString());
-        String title  = bookTitle.getText().toString();
+        String title = bookTitle.getText().toString();
         String author = bookAuthor.getText().toString();
 
         BookModel bookModel = new BookModel();
@@ -35,7 +46,7 @@ public class AddBookActivity extends AppCompatActivity {
         bookModel.setTitle(title);
         bookModel.setAuthor(author);
 
-        MainActivity.myDatabase.myDao().addBooks(bookModel);
+        bookRepository.addBook(bookModel);
 
         bookId.setText("");
         bookTitle.setText("");
