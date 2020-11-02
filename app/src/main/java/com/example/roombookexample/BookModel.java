@@ -39,4 +39,5 @@ public class BookModel {
     public void setAuthor(String author) {
         this.author = author;
     }
+
 }

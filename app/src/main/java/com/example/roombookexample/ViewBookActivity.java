@@ -1,10 +1,14 @@
 package com.example.roombookexample;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.roombookexample.databinding.ActivityMainBinding;
+import com.example.roombookexample.databinding.ActivityViewBookBinding;
 import com.example.roombookexample.repository.BookRepository;
 
 import java.util.List;
@@ -27,7 +31,10 @@ public class ViewBookActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_book);
+
+        ActivityViewBookBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_view_book);
+        ViewBookViewModel viewBookViewModel = ViewModelProviders.of(this).get(ViewBookViewModel.class);
+        binding.setViewViewModel(viewBookViewModel);
 
         txtInfo = findViewById(R.id.tvInfo);
 

@@ -1,6 +1,9 @@
 package com.example.roombookexample;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.room.Insert;
 import androidx.room.Room;
 
@@ -9,44 +12,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.roombookexample.databinding.ActivityMainBinding;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
 public class MainActivity extends AppCompatActivity {
 
-//    Депенденси инжектион - внедрение зависимости, один из механизмов реализации инверсии контроля
     @Inject
     MyDatabase myDatabase;
-    Button buttonAdd;
-    Button buttonView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        AndroidInjection.inject(this);
 
-        buttonAdd = findViewById(R.id.button_add);
-        buttonView = findViewById(R.id.button_view);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        binding.setLifecycleOwner(this);
 
-    }
-
-    public void onClickAdd(View view) {
-
-        Intent intent = new Intent(MainActivity.this, AddBookActivity.class);
-
-        startActivity(intent);
+        MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        binding.setViewModel(mainViewModel);
 
     }
-
-    public void onClickView(View view) {
-
-        Intent intent = new Intent(MainActivity.this, ViewBookActivity.class);
-
-        startActivity(intent);
-
-    }
-
 
 }
