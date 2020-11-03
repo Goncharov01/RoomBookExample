@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel;
 
 public class MainViewModel extends ViewModel {
 
-
     public void onClickAdd(View view) {
 
         Context context = view.getContext();
@@ -26,6 +25,4 @@ public class MainViewModel extends ViewModel {
         context.startActivity(intent);
 
     }
-
-
 }

@@ -5,13 +5,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.roombookexample.databinding.ActivityAddBookBinding;
-import com.example.roombookexample.databinding.ActivityMainBinding;
 import com.example.roombookexample.repository.BookRepository;
 
 import javax.inject.Inject;

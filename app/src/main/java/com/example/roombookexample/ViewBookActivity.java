@@ -1,6 +1,7 @@
 package com.example.roombookexample;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -9,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.roombookexample.databinding.ActivityMainBinding;
 import com.example.roombookexample.databinding.ActivityViewBookBinding;
+import com.example.roombookexample.recycler.AdapterRecycler;
 import com.example.roombookexample.repository.BookRepository;
 
 import java.util.List;
@@ -19,13 +21,11 @@ import dagger.android.AndroidInjection;
 
 public class ViewBookActivity extends AppCompatActivity {
 
-//    @Inject
-//    MyDatabase myDatabase;
-
     @Inject
     BookRepository bookRepository;
 
-    private TextView txtInfo;
+    @Inject
+    AdapterRecycler adapterRecycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,23 +35,16 @@ public class ViewBookActivity extends AppCompatActivity {
         ActivityViewBookBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_view_book);
         ViewBookViewModel viewBookViewModel = ViewModelProviders.of(this).get(ViewBookViewModel.class);
         binding.setViewViewModel(viewBookViewModel);
+        binding.setMyAdapter(adapterRecycler);
 
-        txtInfo = findViewById(R.id.tvInfo);
-
-//        List<BookModel> bookModels = myDatabase.myDao().getBooks();
         List<BookModel> bookModels = bookRepository.getBooks();
-
-        String info = "";
-
-        for (BookModel bookModel : bookModels) {
-            int id = bookModel.getId();
-            String title = bookModel.getTitle();
-            String author = bookModel.getAuthor();
-
-            info = info + "\n\n" + "ID:" + id + "\n Name:" + title + "\n Email:" + author;
-        }
-
-        txtInfo.setText(info);
+        adapterRecycler.onChange(bookModels);
 
     }
+
+    @BindingAdapter("android:text")
+    public static void setText(TextView view, int value) {
+        view.setText(Integer.toString(value));
+    }
+
 }

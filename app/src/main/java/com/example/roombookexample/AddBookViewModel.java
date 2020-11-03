@@ -22,10 +22,6 @@ public class AddBookViewModel extends ViewModel {
 
     public void onClick() {
 
-        System.out.println(idLive);
-        System.out.println(titleLive);
-        System.out.println(authorLive);
-
         BookModel bookModel = new BookModel();
         bookModel.setId(Integer.parseInt(idLive.getValue()));
         bookModel.setTitle(titleLive.getValue());

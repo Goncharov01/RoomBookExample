@@ -21,14 +21,12 @@ public class UserViewModelFactory implements ViewModelProvider.Factory {
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
 
-        if (modelClass.isAssignableFrom(AddBookViewModel.class)){
+        if (modelClass.isAssignableFrom(AddBookViewModel.class)) {
             return (T) new AddBookViewModel(bookRepository);
-        }
-        else {
-            throw  new IllegalArgumentException("Unknown class");
+        } else {
+            throw new IllegalArgumentException("Unknown class");
         }
 
     }
-
 
 }
