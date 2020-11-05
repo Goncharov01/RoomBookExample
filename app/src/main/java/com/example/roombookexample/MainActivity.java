@@ -2,18 +2,11 @@ package com.example.roombookexample;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.room.Insert;
-import androidx.room.Room;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.roombookexample.databinding.ActivityMainBinding;
-import com.example.roombookexample.recycler.AdapterRecycler;
 
 import javax.inject.Inject;
 

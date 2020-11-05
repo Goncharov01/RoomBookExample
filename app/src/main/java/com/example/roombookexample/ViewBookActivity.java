@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.roombookexample.databinding.ActivityMainBinding;
 import com.example.roombookexample.databinding.ActivityViewBookBinding;
 import com.example.roombookexample.recycler.AdapterRecycler;
 import com.example.roombookexample.repository.BookRepository;
@@ -19,13 +18,14 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
-public class ViewBookActivity extends AppCompatActivity {
+public class ViewBookActivity extends AppCompatActivity{
 
     @Inject
     BookRepository bookRepository;
 
     @Inject
     AdapterRecycler adapterRecycler;
+    ViewBookViewModel viewBookViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class ViewBookActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         ActivityViewBookBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_view_book);
-        ViewBookViewModel viewBookViewModel = ViewModelProviders.of(this).get(ViewBookViewModel.class);
+        viewBookViewModel = ViewModelProviders.of(this).get(ViewBookViewModel.class);
         binding.setViewViewModel(viewBookViewModel);
         binding.setMyAdapter(adapterRecycler);
 
@@ -46,5 +46,4 @@ public class ViewBookActivity extends AppCompatActivity {
     public static void setText(TextView view, int value) {
         view.setText(Integer.toString(value));
     }
-
 }
