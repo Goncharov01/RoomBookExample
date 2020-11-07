@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.roombookexample.BookModel;
 import com.example.roombookexample.databinding.TaskListItemBinding;
+import com.example.roombookexample.repository.BookRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +20,11 @@ public class AdapterRecycler extends RecyclerView.Adapter<BookItemViewHolder> {
 
     List<BookModel> bookList = new ArrayList<>();
 
+    BookRepository bookRepository;
+
     @Inject
-    public AdapterRecycler() {
+    public AdapterRecycler(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
     }
 
     @NonNull
@@ -34,7 +38,7 @@ public class AdapterRecycler extends RecyclerView.Adapter<BookItemViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull BookItemViewHolder holder, int position) {
         BookModel bookModel = bookList.get(position);
-        holder.bind(bookModel);
+        holder.bind(bookModel,bookRepository);
     }
 
     @Override
