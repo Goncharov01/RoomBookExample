@@ -9,6 +9,10 @@
         <variable
             name="addBookViewModel"
             type="com.example.roombookexample.AddBookViewModel" />
+
+        <variable
+            name="bookModel"
+            type="com.example.roombookexample.BookModel" />
     </data>
     
     

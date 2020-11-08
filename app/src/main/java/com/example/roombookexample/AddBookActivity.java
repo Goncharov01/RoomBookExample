@@ -15,6 +15,8 @@ import dagger.android.AndroidInjection;
 
 public class AddBookActivity extends AppCompatActivity {
 
+    BookModel bookModel;
+
     @Inject
     UserViewModelFactory userViewModelFactory;
 
@@ -29,6 +31,13 @@ public class AddBookActivity extends AppCompatActivity {
         ActivityAddBookBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_add_book);
         AddBookViewModel addBookViewModel = ViewModelProviders.of(this, userViewModelFactory).get(AddBookViewModel.class);
         binding.setAddBookViewModel(addBookViewModel);
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null){
+            bookModel = bundle.getParcelable("bookmodel");
+            binding.setBookModel(bookModel);
+            System.out.println(bookModel + "@@@@@@@@@@@@@@@@@@@@");
+        }
 
     }
 

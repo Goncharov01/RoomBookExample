@@ -1,6 +1,7 @@
 package com.example.roombookexample;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -14,5 +15,8 @@ public interface MyDao {
 
     @Query("select * from books")
     public List<BookModel> getBooks();
+
+    @Delete
+    public void deleteBook(BookModel bookModel);
 
 }

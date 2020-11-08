@@ -16,7 +16,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class AdapterRecycler extends RecyclerView.Adapter<BookItemViewHolder> {
+public class AdapterRecycler extends RecyclerView.Adapter<BookItemViewHolder> implements ClickChangeListener {
 
     List<BookModel> bookList = new ArrayList<>();
 
@@ -38,7 +38,7 @@ public class AdapterRecycler extends RecyclerView.Adapter<BookItemViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull BookItemViewHolder holder, int position) {
         BookModel bookModel = bookList.get(position);
-        holder.bind(bookModel,bookRepository);
+        holder.bind(bookModel,bookRepository, this);
     }
 
     @Override
@@ -50,6 +50,12 @@ public class AdapterRecycler extends RecyclerView.Adapter<BookItemViewHolder> {
         bookList.clear();
         bookList.addAll(books);
         notifyDataSetChanged();
+    }
+
+    public void onChange(int index){
+        System.out.println("On Change" + index);
+        notifyItemRemoved(index);
+
     }
 
 }

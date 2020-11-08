@@ -26,4 +26,8 @@ public class BookRepository  {
         return myDao.getBooks();
     }
 
+    public void deleteBook(BookModel bookModel){
+        myDao.deleteBook(bookModel);
+    }
+
 }
