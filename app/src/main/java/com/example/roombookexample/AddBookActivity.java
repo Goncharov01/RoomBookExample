@@ -37,6 +37,9 @@ public class AddBookActivity extends AppCompatActivity {
             bookModel = bundle.getParcelable("bookmodel");
             binding.setBookModel(bookModel);
             System.out.println(bookModel + "@@@@@@@@@@@@@@@@@@@@");
+            addBookViewModel.idLive.setValue(String.valueOf(bookModel.id));
+            addBookViewModel.titleLive.setValue(String.valueOf(bookModel.title));
+            addBookViewModel.authorLive.setValue(String.valueOf(bookModel.author));
         }
 
     }

@@ -30,4 +30,8 @@ public class BookRepository  {
         myDao.deleteBook(bookModel);
     }
 
+    public void updateBook(BookModel bookModel){
+        myDao.updateBook(bookModel);
+    }
+
 }
