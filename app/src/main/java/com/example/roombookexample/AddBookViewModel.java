@@ -1,8 +1,8 @@
 package com.example.roombookexample;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -27,7 +27,9 @@ public class AddBookViewModel extends ViewModel {
         authorLive.setValue(bookModel.author);
     }
 
-    public void onClick() {
+    public void onClick(View v) {
+
+        Context context = v.getContext();
 
         BookModel bookModel = new BookModel();
         bookModel.setId(Integer.parseInt(idLive.getValue()));
@@ -36,13 +38,16 @@ public class AddBookViewModel extends ViewModel {
 
         System.out.println(bookModel + "***********");
 
-        if (bookModel.getId() == 0){
+        if (bookModel.getId() == 0) {
             bookRepository.addBook(bookModel);
             System.out.println("SAVE BOOKMODEL" + bookModel);
         } else {
             bookRepository.updateBook(bookModel);
             System.out.println("UPDATE BOOKMODEL" + bookModel);
         }
+
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
 
     }
 

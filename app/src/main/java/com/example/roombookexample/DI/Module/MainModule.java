@@ -6,7 +6,6 @@ import androidx.room.Room;
 
 import com.example.roombookexample.MyDatabase;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -22,5 +21,4 @@ public class MainModule {
                 .allowMainThreadQueries()
                 .build();
     }
-
 }

@@ -32,7 +32,7 @@ public class BookItemViewHolder extends RecyclerView.ViewHolder {
         binding.getRoot().findViewById(R.id.layoutList).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                Toast.makeText(view.getContext(), "Click" + bookModel.getId(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Deleted book with ID " + bookModel.getId(), Toast.LENGTH_SHORT).show();
                 bookRepository.deleteBook(bookModel);
                 clickChangeListener.onChange(bookRepository.getBooks());
                 return false;

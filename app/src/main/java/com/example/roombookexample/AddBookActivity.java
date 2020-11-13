@@ -33,7 +33,7 @@ public class AddBookActivity extends AppCompatActivity {
         binding.setAddBookViewModel(addBookViewModel);
         Bundle bundle = getIntent().getExtras();
 
-        if (bundle != null){
+        if (bundle != null) {
             bookModel = bundle.getParcelable("bookmodel");
             binding.setBookModel(bookModel);
             System.out.println(bookModel + "@@@@@@@@@@@@@@@@@@@@");

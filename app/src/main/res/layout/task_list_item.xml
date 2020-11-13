@@ -12,9 +12,9 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/layoutList">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -27,23 +27,23 @@
 
             <TextView
                 android:id="@+id/idView"
-                android:text="@{model.id}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{model.id}"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/titleView"
-                android:text="@{model.title}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{model.title}"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/authorView"
-                android:text="@{model.author}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{model.author}"
                 android:textSize="18sp" />
 
         </LinearLayout>

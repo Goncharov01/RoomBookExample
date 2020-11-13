@@ -1,6 +1,5 @@
 package com.example.roombookexample.recycler;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -38,7 +37,7 @@ public class AdapterRecycler extends RecyclerView.Adapter<BookItemViewHolder> im
     @Override
     public void onBindViewHolder(@NonNull BookItemViewHolder holder, int position) {
         BookModel bookModel = bookList.get(position);
-        holder.bind(bookModel,bookRepository, this);
+        holder.bind(bookModel, bookRepository, this);
     }
 
     @Override
@@ -52,7 +51,7 @@ public class AdapterRecycler extends RecyclerView.Adapter<BookItemViewHolder> im
         notifyDataSetChanged();
     }
 
-    public void onChange(int index){
+    public void onChange(int index) {
         System.out.println("On Change" + index);
         notifyItemRemoved(index);
 

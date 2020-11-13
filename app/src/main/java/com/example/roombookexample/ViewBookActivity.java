@@ -18,7 +18,7 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
-public class ViewBookActivity extends AppCompatActivity{
+public class ViewBookActivity extends AppCompatActivity {
 
     @Inject
     BookRepository bookRepository;

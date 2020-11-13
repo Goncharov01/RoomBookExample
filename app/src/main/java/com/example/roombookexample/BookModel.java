@@ -64,20 +64,20 @@ public class BookModel implements Parcelable {
         parcel.writeString(author);
     }
 
-   public static final Parcelable.Creator<BookModel> CREATOR = new Parcelable.Creator<BookModel>() {
-       @Override
-       public BookModel createFromParcel(Parcel parcel) {
-           int id = parcel.readInt();
-           String title = parcel.readString();
-           String author = parcel.readString();
-           return new BookModel(id,title,author);
-       }
+    public static final Parcelable.Creator<BookModel> CREATOR = new Parcelable.Creator<BookModel>() {
+        @Override
+        public BookModel createFromParcel(Parcel parcel) {
+            int id = parcel.readInt();
+            String title = parcel.readString();
+            String author = parcel.readString();
+            return new BookModel(id, title, author);
+        }
 
-       @Override
-       public BookModel[] newArray(int i) {
-           return new BookModel[i];
-       }
-   };
+        @Override
+        public BookModel[] newArray(int i) {
+            return new BookModel[i];
+        }
+    };
 
     @Override
     public String toString() {
