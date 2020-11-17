@@ -30,6 +30,7 @@
             android:clickable="false"
             android:editable="false"
             android:ems="10"
+            android:background="@drawable/edit_text_style"
             android:focusable="false"
             android:text="@={addBookViewModel.idLive}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +42,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_style"
             android:ems="10"
+            android:hint=" Title"
             android:inputType="textPersonName"
             android:text="@={addBookViewModel.titleLive}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,8 +56,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@drawable/edit_text_style"
             android:ems="10"
+            android:hint=" Author"
             android:inputType="textPersonName"
+
             android:text="@={addBookViewModel.authorLive}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -62,10 +68,11 @@
 
         <Button
             android:id="@+id/buttonSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="125dp"
+            android:layout_height="47dp"
+            android:background="@drawable/roundedbutton"
             android:onClick="@{(v) -> addBookViewModel.onClick(v)}"
-            android:text="Save"
+            android:text="Save/Update"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +89,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

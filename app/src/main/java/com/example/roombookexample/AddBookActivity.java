@@ -1,10 +1,14 @@
 package com.example.roombookexample;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.roombookexample.databinding.ActivityAddBookBinding;
 import com.example.roombookexample.repository.BookRepository;
@@ -12,6 +16,8 @@ import com.example.roombookexample.repository.BookRepository;
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
+
+import static android.view.View.VISIBLE;
 
 public class AddBookActivity extends AppCompatActivity {
 
@@ -43,5 +49,15 @@ public class AddBookActivity extends AppCompatActivity {
         }
 
     }
+
+//    @BindingAdapter("android:visibility")
+//    public static void setVisibility(View view) {
+//
+//        BookModel bookModel = new BookModel();
+//
+//        if(bookModel.id == 0){
+//            view.setVisibility(View.GONE);
+//        }
+//    }
 
 }
