@@ -58,16 +58,4 @@ public class AddBookViewModel extends ViewModel {
 
     }
 
-    public void onOffVisibility(View view){
-
-        BookModel bookModel = new BookModel();
-
-        if(bookModel.id == 0){
-            view.setVisibility(View.INVISIBLE);
-        }
-
-    }
-
-
-
 }

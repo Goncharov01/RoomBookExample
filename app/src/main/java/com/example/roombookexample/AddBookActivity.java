@@ -50,14 +50,4 @@ public class AddBookActivity extends AppCompatActivity {
 
     }
 
-//    @BindingAdapter("android:visibility")
-//    public static void setVisibility(View view) {
-//
-//        BookModel bookModel = new BookModel();
-//
-//        if(bookModel.id == 0){
-//            view.setVisibility(View.GONE);
-//        }
-//    }
-
 }

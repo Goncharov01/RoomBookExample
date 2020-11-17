@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type = "android.view.View" />
+
         <variable
             name="addBookViewModel"
             type="com.example.roombookexample.AddBookViewModel" />
@@ -72,12 +74,26 @@
             android:layout_height="47dp"
             android:background="@drawable/roundedbutton"
             android:onClick="@{(v) -> addBookViewModel.onClick(v)}"
-            android:text="Save/Update"
+            android:text="Save"
+            android:visibility="@{bookModel.id == 0 ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editAuthor"
             app:layout_constraintVertical_bias="0.060000002" />
+
+        <Button
+            android:id="@+id/buttonUpdate"
+            android:layout_width="125dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/roundedbutton"
+            android:onClick="@{(v) -> addBookViewModel.onClick(v)}"
+            android:text="Update"
+            android:visibility="@{bookModel.id == 0 ? View.GONE: View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSave" />
 
         <TextView
             android:id="@+id/textView2"
@@ -89,6 +105,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
