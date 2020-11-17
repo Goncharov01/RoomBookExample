@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.roombookexample.BookModel;
@@ -46,14 +47,14 @@ public class AdapterRecycler extends RecyclerView.Adapter<BookItemViewHolder> im
     }
 
     public void onChange(List<BookModel> books) {
+
+        BookDiffUtil bookDiffUtil = new BookDiffUtil(this.bookList, books);
+        DiffUtil.DiffResult booksDiffResult = DiffUtil.calculateDiff(bookDiffUtil);
+
         bookList.clear();
         bookList.addAll(books);
-        notifyDataSetChanged();
-    }
 
-    public void onChange(int index) {
-        System.out.println("On Change" + index);
-        notifyItemRemoved(index);
+        booksDiffResult.dispatchUpdatesTo(this);
 
     }
 
