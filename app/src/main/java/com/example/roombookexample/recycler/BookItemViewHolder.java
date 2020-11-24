@@ -25,19 +25,46 @@ public class BookItemViewHolder extends RecyclerView.ViewHolder {
         binding = DataBindingUtil.bind(v);
     }
 
-    public void bind(Object obj, BookRepository bookRepository, ClickChangeListener clickChangeListener) {
+//    public void bind(Object obj, BookRepository bookRepository, ClickChangeListener clickChangeListener) {
+//        binding.setVariable(BR.model, obj);
+//        bookModel = (BookModel) obj;
+//        binding.executePendingBindings();
+//        binding.getRoot().findViewById(R.id.layoutList).setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Toast.makeText(view.getContext(), "Deleted book with ID " + bookModel.getId(), Toast.LENGTH_SHORT).show();
+//                bookRepository.deleteBook(bookModel);
+//                clickChangeListener.onChange(bookRepository.getBooks());
+//                return false;
+//            }
+//        });
+//
+//
+//        binding.getRoot().findViewById(R.id.layoutList).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Context context = view.getContext();
+//                Intent intent = new Intent(context, AddBookActivity.class);
+//                intent.putExtra("bookmodel", bookModel);
+//                context.startActivity(intent);
+//            }
+//        });
+//
+//    }
+
+    public void bind(Object obj) {
         binding.setVariable(BR.model, obj);
         bookModel = (BookModel) obj;
         binding.executePendingBindings();
-        binding.getRoot().findViewById(R.id.layoutList).setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Toast.makeText(view.getContext(), "Deleted book with ID " + bookModel.getId(), Toast.LENGTH_SHORT).show();
-                bookRepository.deleteBook(bookModel);
-                clickChangeListener.onChange(bookRepository.getBooks());
-                return false;
-            }
-        });
+//        binding.getRoot().findViewById(R.id.layoutList).setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View view) {
+//                Toast.makeText(view.getContext(), "Deleted book with ID " + bookModel.getId(), Toast.LENGTH_SHORT).show();
+//                bookRepository.deleteBook(bookModel);
+//                clickChangeListener.onChange(bookRepository.getBooks());
+//                return false;
+//            }
+//        });
 
 
         binding.getRoot().findViewById(R.id.layoutList).setOnClickListener(new View.OnClickListener() {

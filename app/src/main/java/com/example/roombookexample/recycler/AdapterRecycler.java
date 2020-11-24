@@ -38,7 +38,8 @@ public class AdapterRecycler extends RecyclerView.Adapter<BookItemViewHolder> im
     @Override
     public void onBindViewHolder(@NonNull BookItemViewHolder holder, int position) {
         BookModel bookModel = bookList.get(position);
-        holder.bind(bookModel, bookRepository, this);
+        holder.bind(bookModel);
+//        holder.bind(bookModel, bookRepository, this);
     }
 
     @Override

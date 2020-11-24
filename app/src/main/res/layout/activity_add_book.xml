@@ -6,7 +6,7 @@
 
     <data>
 
-        <import type = "android.view.View" />
+        <import type="android.view.View" />
 
         <variable
             name="addBookViewModel"
@@ -29,10 +29,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="86dp"
+            android:background="@drawable/edit_text_style"
             android:clickable="false"
             android:editable="false"
             android:ems="10"
-            android:background="@drawable/edit_text_style"
             android:focusable="false"
             android:text="@={addBookViewModel.idLive}"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,6 @@
             android:ems="10"
             android:hint=" Author"
             android:inputType="textPersonName"
-
             android:text="@={addBookViewModel.authorLive}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +104,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

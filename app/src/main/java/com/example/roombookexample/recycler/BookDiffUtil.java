@@ -27,7 +27,6 @@ public class BookDiffUtil extends DiffUtil.Callback {
         return newList.size();
     }
 
-    //    Проверяем является ли элемент страго и нового списка одним и тем же
     @Override
     public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
         BookModel bookModelOld = oldList.get(oldItemPosition);
