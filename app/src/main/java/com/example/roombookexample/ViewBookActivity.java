@@ -56,7 +56,7 @@ public class ViewBookActivity extends AppCompatActivity {
                 .setNotifyExecutor(Executors.newSingleThreadExecutor())
                 .build();
 
-        BookPagedAdapter bookPagedAdapter = new BookPagedAdapter(new DiffUtilItem());
+        BookPagedAdapter bookPagedAdapter = new BookPagedAdapter(new DiffUtilItem(), bookRepository);
         bookPagedAdapter.submitList(pagedList);
 
         binding.setMyAdapter(bookPagedAdapter);

@@ -29,6 +29,7 @@ public class AddBookViewModel extends ViewModel {
 
     public AddBookViewModel(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
+
         idLive.setValue(String.valueOf(bookModel.id));
         titleLive.setValue(bookModel.title);
         authorLive.setValue(bookModel.author);

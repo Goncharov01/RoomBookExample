@@ -11,11 +11,17 @@ import androidx.recyclerview.widget.DiffUtil;
 
 import com.example.roombookexample.BookModel;
 import com.example.roombookexample.R;
+import com.example.roombookexample.repository.BookRepository;
 
-public class BookPagedAdapter extends PagedListAdapter<BookModel,BookItemViewHolder> {
+import java.util.List;
 
-    public BookPagedAdapter(@NonNull DiffUtil.ItemCallback<BookModel> diffCallback) {
+public class BookPagedAdapter extends PagedListAdapter<BookModel,BookItemViewHolder> implements ClickChangeListener {
+
+    BookRepository bookRepository;
+
+    public BookPagedAdapter(@NonNull DiffUtil.ItemCallback<BookModel> diffCallback,BookRepository bookRepository) {
         super(diffCallback);
+        this.bookRepository = bookRepository;
     }
 
     @NonNull
@@ -29,7 +35,12 @@ public class BookPagedAdapter extends PagedListAdapter<BookModel,BookItemViewHol
 
     @Override
     public void onBindViewHolder(@NonNull BookItemViewHolder holder, int position) {
-        holder.bind(getItem(position));
+        holder.bind(getItem(position),bookRepository,this);
+
+    }
+
+    @Override
+    public void onChange(List<BookModel> books) {
 
     }
 }
